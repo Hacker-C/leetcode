@@ -1,3 +1,4 @@
+// 解法1：使用两个队列
 var MyStack = function () {
   this.queue1 = []
   this.queue2 = []
