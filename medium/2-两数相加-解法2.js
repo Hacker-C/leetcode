@@ -14,10 +14,12 @@ var addTwoNumbers = function (l1, l2) {
   let sum = 0
   let ret = new ListNode()
   let cur = ret
+  // 同时遍历 l1和l2，对应节点值相加，有进位则进位
   while (l1 && l2) {
     sum = l1.val + l2.val + sum
     let base = sum % 10
     let node = new ListNode(base, null)
+    // 采用尾添加节点方法
     cur.next = node
     cur = node
     if (sum >= 10) {
@@ -28,11 +30,13 @@ var addTwoNumbers = function (l1, l2) {
     l1 = l1.next
     l2 = l2.next
   }
+  // 长的链表继续遍历
   let temp = l1 || l2
   while (temp) {
     sum = temp.val + sum
     let base = sum % 10
     let node = new ListNode(base, null)
+    // 采用尾添加节点方法
     cur.next = node
     cur = node
     if (sum >= 10) {
