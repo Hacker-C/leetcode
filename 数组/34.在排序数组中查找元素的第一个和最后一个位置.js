@@ -9,7 +9,7 @@ var searchRange = function (nums, target) {
   const getLeftBorder = (nums, target) => {
     let l = 0, r = nums.length - 1
     while (l <= r) {
-      let mid = l + Math.ceil((r - l) / 2)
+      let mid = l + Math.floor((r - l) / 2)
       if (nums[mid] === target) {
         // 把右范围 r 一直向左逼近，直到到达 target 的左边界
         r = mid - 1
@@ -33,7 +33,7 @@ var searchRange = function (nums, target) {
   const getRightBorder = (nums, target) => {
     let l = 0, r = nums.length - 1, mid = 0
     while (l <= r) {
-      mid = l + Math.ceil((r - l) / 2)
+      mid = l + Math.floor((r - l) / 2)
       if (nums[mid] === target) {
         // 把左边范围 l 往右边逼近，直到到达 target 的右边界
         l = mid + 1
