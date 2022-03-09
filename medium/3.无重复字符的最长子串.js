@@ -3,18 +3,19 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-  let set = new Set()
-  let res = 0
-  if (s.length === 1) return 1
+  let set = new Set(), ans = 0
+  let r = -1
   for (let i = 0; i < s.length; i++) {
-    let j = i
-    while (j < s.length && !set.has(s[j])) {
-      set.add(s[j])
-      j++
+    if (i !== 0) {
+      set.delete(s[i - 1])
     }
-    res = Math.max(res, set.size)
-    set.clear()
+    while (r + 1 < s.length && !set.has(s[r + 1])) {
+      set.add(s[r + 1])
+      r++
+    }
+    ans = Math.max(r - i + 1, ans)
   }
-  return res
+  return ans
 };
 
+lengthOfLongestSubstring('pwwabw')
