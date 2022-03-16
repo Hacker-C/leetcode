@@ -18,5 +18,4 @@ var mirrorTree = function (root) {
   root.left = right;
   root.right = left;
   return root;
-
 };
