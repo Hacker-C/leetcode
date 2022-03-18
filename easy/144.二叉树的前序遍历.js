@@ -10,16 +10,30 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
+
+// 方法2：迭代
 var preorderTraversal = function (root) {
-  let res = []
-  const sub = (node, ans = []) => {
-    if (node !== null) {
-      ans.push(node.val)
-      sub(node.left, ans)
-      sub(node.right, ans)
-    }
-    return ans
+  if (!root) return [];
+  let stack = [root];
+  let res = [];
+  while (stack.length) {
+    let node = stack.pop();
+    res.push(node.val);
+    node?.right && stack.push(node.right);
+    node?.left && stack.push(node.left);
   }
-  res = sub(root)
-  return res
+  return res;
+};
+
+// 方法1：递归
+var preorderTraversal = function (root) {
+  const help = (node, res = []) => {
+    if (node) {
+      res.push(node.val);
+      help(node.left, res);
+      help(node.right, res);
+    }
+    return res;
+  };
+  return help(root);
 };
