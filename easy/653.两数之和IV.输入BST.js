@@ -12,23 +12,16 @@
  * @return {boolean}
  */
 var findTarget = function (root, k) {
-
-  if (!root) {
+  const help = (node, k, set = new Set()) => {
+    if (node) {
+      if (set.has(node.val)) {
+        return true
+      } else {
+        set.add(k - node.val)
+      }
+      return help(node.left, k, set) || help(node.right, k, set)
+    }
     return false
   }
-  const map = new Map()
-  const helper = (node, k, map) => {
-    if (!node) {
-      return false
-    }
-    let sub = k - node.val
-    if (map.has(sub)) {
-      return true
-    } else {
-      map.set(node.val, node.val)
-    }
-    return helper(node.left, k, map) || helper(node.right, k, map)
-  }
-  return helper(root, k, map)
-
-};
+  return help(root, k)
+}
