@@ -5,6 +5,7 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
+
 /**
  * @param {ListNode} l1
  * @param {ListNode} l2
@@ -51,4 +52,4 @@ var addTwoNumbers = function (l1, l2) {
     cur.next = node
   }
   return ret.next
-};
+}
