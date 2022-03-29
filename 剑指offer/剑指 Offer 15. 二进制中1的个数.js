@@ -29,5 +29,4 @@ var hammingWeight = function (n) {
   }
   return res
 }
-
 hammingWeight(4294967293)
