@@ -5,8 +5,8 @@
  */
 var numberOfLines = function (widths, s) {
   let sum = 0
-  let i = 0
   let line = 1
+  let i = 0
   while (i < s.length) {
     sum += widths[s[i].charCodeAt(0) - 97]
     if (sum > 100) {
