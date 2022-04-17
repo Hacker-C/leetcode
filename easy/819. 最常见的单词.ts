@@ -3,7 +3,7 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
     paragraph
       .toLowerCase()
       .replace(/[^a-zA-Z ]/g, ' ')
-      .split(/[ !?',;.]/)
+      .split(/\W+/)
       .filter((x) => !banned.includes(x) && Boolean(x))
       .reduce((pre, cur) => {
         pre.set(cur, (pre?.get(cur) ?? 0) + 1)
