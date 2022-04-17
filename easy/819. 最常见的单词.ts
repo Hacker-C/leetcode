@@ -9,13 +9,5 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
         pre.set(cur, (pre?.get(cur) ?? 0) + 1)
         return pre
       }, new Map())
-  ).reduce(
-    (pre, cur) => {
-      if (cur[1] > pre[1]) {
-        pre = cur
-      }
-      return pre
-    },
-    ['', -1]
-  )[0]
+  ).reduce((pre, cur) => (cur[1] > pre[1] ? cur : pre), ['', -1])[0]
 }
