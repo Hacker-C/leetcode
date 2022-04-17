@@ -19,6 +19,3 @@ function mostCommonWord(paragraph: string, banned: string[]): string {
     ['', -1]
   )[0]
 }
-let paragraph = 'Bob hit a ball, the hit BALL flew far after it was hit.'
-let banned = ['hit']
-console.log(mostCommonWord(paragraph, banned))
