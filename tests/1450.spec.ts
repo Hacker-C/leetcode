@@ -1,4 +1,4 @@
-import busyStudent from '../easy/1450. 在既定时间做作业的学生人数'
+import busyStudent from '../每日一题/easy/1450. 在既定时间做作业的学生人数'
 import { expect, test } from 'vitest'
 
 test('test cases', () => {
